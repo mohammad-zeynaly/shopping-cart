@@ -2,7 +2,7 @@
 ---
 
 # a minimal shopping cart!
-## [review online](https://arvancloud.netlify.app/)
+## [review online](https://mohammad-zeynali.github.io/shopping-cart/)
 
 ---
 ## tips
