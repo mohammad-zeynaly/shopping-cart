@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/grid.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <title> shopping cart </title>
+</head>
+<body>
+
+<div id="overlay" class=""></div>
+
+
+<!-- Header-->
+<header class="header">
+    <div class="container">
+        <div class="header__wrapper">
+            <h1 class="header__title">Products</h1>
+            <div class="header__links">
+                <button class="header__theme-btn">
+                    <svg class="header__moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="28" height="28" viewBox="0 0 24 24">
+                        <defs></defs>
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                      </svg>
+                </button>
+                <button class="header-basket">
+                    <svg height="50px" width="50px" version="1.1" id="_x32_" viewBox="0 0 512 512"  xml:space="preserve">
+    <style type="text/css">
+    	.st0{fill:#2869ff;}
+    </style>
+    <g>
+	<path class="st0" d="M486.998,140.232c-8.924-12.176-22.722-19.878-37.785-21.078l-311.616-24.68l-5.665-32.094
+		c-5.179-29.305-28.497-51.998-57.932-56.352l-5.662-0.845L34.65,0.185c-9.385-1.378-18.118,5.09-19.51,14.475
+		c-1.395,9.393,5.086,18.127,14.471,19.514v-0.008l39.357,5.834l0.009,0.026c14.788,2.164,26.526,13.586,29.131,28.324
+		l53.338,302.302c5.005,28.375,29.647,49.047,58.461,49.056h219.192c9.49,0,17.176-7.694,17.176-17.172
+		c0-9.486-7.686-17.18-17.176-17.18H209.906c-12.133,0.009-22.536-8.725-24.642-20.672l-7.461-42.299h244.342
+		c24.189,0,45.174-16.691,50.606-40.262l22.967-99.523C499.118,167.887,495.93,152.424,486.998,140.232z"/>
+	<path class="st0" d="M223.012,438.122c-20.402,0-36.935,16.554-36.935,36.948c0,20.394,16.533,36.931,36.935,36.931
+		c20.401,0,36.944-16.537,36.944-36.931C259.955,454.676,243.413,438.122,223.012,438.122z"/>
+	<path class="st0" d="M387.124,438.122c-20.406,0-36.935,16.554-36.935,36.948c0,20.394,16.529,36.931,36.935,36.931
+		c20.402,0,36.944-16.537,36.944-36.931C424.068,454.676,407.526,438.122,387.124,438.122z"/>
+    </g>
+    </svg>
+                <span class="header-basket__badge">0</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!-- Main-->
+<main class="main">
+
+    <section class="products">
+        <div class="container">
+            <div class="row" id="products-wrapper">
+
+        <!-- Product Render Js-->
+
+        </div>
+        </div>
+    </section>
+
+    <section id="basketModal" class="basket-modal">
+            <div class="basket-modal__wrapper">
+            <svg class="basket-modal__close" width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="#FF0000"/>
+            </svg>
+            <p class="basket-modal__title">Your Cart</p>
+            </div>
+            <div id="basketModalItems" class="basket-modal__items">
+             <!-- User Basket Render Js-->
+            </div>
+            <div class="basket-modal__computing">
+                <p class="basket-modal__total">Total Price: <span id="totalPrice" class="basket-modal__total-price">0.00</span>$</p>
+                <button id="basketModalClear" class="app-btn basket-modal__clear basket-modal__btn">Clear Cart</button>
+                <button id="basketModalConfirm" class="app-btn basket-modal__confirm basket-modal__btn">Confirm</button>
+            </div>
+    </section>
+
+</main>
+
+
+    <script src="script/app.js"></script>
+</body>
+</html>

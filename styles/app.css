@@ -1,0 +1,524 @@
+/*============================================== Font Face  ==============================================*/
+
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url("../fonts/ttf/Poppins-Regular.ttf") format("truerype"),
+    url("../fonts/woff/Poppins-Regular.woff");
+}
+@font-face {
+    font-family: "Poppins-Medium";
+    src: url("../fonts/ttf/Poppins-Medium.ttf") format("truerype"),
+    url("../fonts/woff/Poppins-Medium.woff");
+}
+@font-face {
+    font-family: "Poppins-SemiBold";
+    src: url("../fonts/ttf/Poppins-SemiBold.ttf") format("truerype"),
+    url("../fonts/woff/Poppins-SemiBold.woff");
+}
+@font-face {
+    font-family: "Poppins-Bold";
+    src: url("../fonts/ttf/Poppins-Bold.ttf") format("truerype"),
+    url("../fonts/woff/Poppins-Bold.woff");
+}
+
+
+/*============================================== colors  ==============================================*/
+
+  
+:root {
+--app-bg: #fff;
+--app-content-secondary-color: #f3f6fd;
+--app-content-main-color: #1f1c2e;
+--filter-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+--action-color: #2869ff;
+--action-color-hover: #6291fd;
+}
+
+
+:root.dark-theme {
+--app-bg: #101827;
+--app-content-main-color: #fff;
+--app-content-secondary-color: #1d283c;
+--filter-reset: #2c394f;
+--filter-shadow: rgba(16, 24, 39, 0.8) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+--action-color: #2869ff;
+--action-color-hover: #6291fd;
+}
+
+
+
+/*==============================================  Reset Css  ==============================================*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+ 
+ /* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+ display: block;
+}
+ 
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+  
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+  
+body {
+    font-size: 1.6rem;
+    font-family: "Poppins-Medium",sans-serif;
+    background-color: var(--app-bg);
+    position:relative;
+}
+.overlay{
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 88;
+    height: 100%;
+}
+
+/*
+  
+    =============
+      components
+    =============
+  
+*/
+
+
+.app-btn{
+    width: 12rem;
+    height: 4rem;
+    background-color: var(--action-color);
+    color: #fff;
+    border:.1rem solid var(--action-color);
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 200ms ease-in;
+}
+
+.app-btn:hover{
+    background-color: var(--action-color-hover);
+}
+.app-btn{
+
+}
+
+
+/*
+  
+    ==========
+      Header
+    ==========
+  
+*/
+.header{
+    padding: 2rem 0;
+}
+.header__wrapper {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+  
+.header__title {
+ color: var(--app-content-main-color);
+ font-size: 2.4rem;
+ font-family: "Poppins-SemiBold"
+}
+.header__links{
+    display:flex;
+    align-items:center;
+}
+.header__theme-btn{
+    background:transparent;
+    border: none;
+    outline: none;
+    margin-right: .8rem;
+    cursor: pointer;
+}
+.dark-theme .header__moon{
+    fill: #fff ;
+}
+.header-basket{
+    background: transparent;
+    border: none;
+    outline: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.header-basket__badge{
+    background-color: rgba(43, 169, 114, 0.904);
+    color:#fff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 100%;
+    position: absolute;
+    right: 5%;
+    z-index: 99;
+}
+/*
+  
+    ===================
+      Section Products
+    ===================
+  
+*/
+.products{
+    margin-top: 6rem;
+}
+
+.product-item{
+    background-color: var(--app-content-secondary-color);
+    border-radius: 0.5rem;
+    padding: .9rem;
+    transition: all 200ms ease-in;
+}
+.product-item:hover{
+    transform:scale(1.01);
+    box-shadow: var(--filter-shadow);
+}
+.product-item-img{
+}
+.product-item__image{
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+}
+.product-item-body{
+    margin: 2rem 0;
+}
+.product-item-body__title{
+    font-size: 1.8rem;
+    color: var(--app-content-main-color);
+}
+.product-item-body-texts{
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--app-content-main-color);
+}
+.product-item-body-texts__title{
+
+}
+.product-item-body-texts__caption{
+
+}
+.product-item-body-texts--active{
+    color: #2ba972;
+    background-color: rgba(43, 169, 114, 0.2);
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+}
+.product-item-body-texts--disabled{
+    color: #59719d;
+    background-color: rgba(89, 113, 157, 0.2);
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+}
+.product-item__btn{
+    display: flex;
+    justify-content: center;
+    margin:1rem;
+}
+
+/*
+  
+    =====================
+      Section Modal Cart
+    =====================
+  
+*/
+
+.basket-modal{
+    width: 60rem;
+    position: fixed;
+    padding: 20px 5%;
+    top: -50%;/* 50% active*/
+    left:50%;
+    transform: translate(-50%,-50%);
+    display:flex;
+    flex-direction:column;
+    gap: 3rem;
+    background-color: var(--app-content-secondary-color);
+    border-radius: 1rem;
+    z-index: 101;
+    transition: top 500ms ease-in;
+}
+.basket-modal__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.basket-modal__title{
+    font-size: 3rem;
+}
+.basket-modal__close{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.basket-modal__items{
+    display:flex;
+    flex-direction:column;
+    height: 30rem;
+    overflow-y: auto;
+    gap: 2rem;
+    border: .1rem solid var(--action-color);
+    border-radius: 1rem;
+    padding: 0 .5rem;
+    padding: 0.5rem;
+}
+.basket-modal__caption{
+    text-align: center;
+    color: var(--app-content-main-color);
+    margin: 5rem 0;
+    font-size: 2.5rem;
+}
+.basket-modal-item{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 0.5rem;
+}
+
+.basket-modal-item__picture{
+    width: 100px;
+}
+.basket-modal-item__picture img{
+    width: 100%;
+    border-radius: 0.5rem;
+}
+.basket-modal-item__number{
+    display: flex;
+    align-items: center;
+  
+}
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    background: transparent;
+    color: var(--app-content-main-color);
+}
+input[type="number"]:focus{
+    border: none;
+    outline: none;
+}
+.basket-modal-item__input{
+   
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+.basket-modal-item__number button {
+  outline:none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  margin: 0;
+  position: relative;
+  padding: 0;
+}
+  
+.basket-modal-item__number input[type=number] {
+  font-family: 'Poppins-SemiBold';
+  max-width: 3.5rem;
+  border: none;
+  font-size: 2rem;
+  text-align: center;
+}
+.basket-modal-item__caption{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.8rem;
+}
+.basket-modal__title,
+.basket-modal-item__title,
+.basket-modal__total{
+    color: var(--app-content-main-color);
+}
+.basket-modal-item__icon{
+    cursor: pointer;
+}
+.basket-modal-item__price{
+    color: var(--action-color);
+    padding-top: .5rem;
+}
+.basket-modal__computing{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.basket-modal__total span{
+    margin-left: .5rem;
+    display: inline-block;
+}
+.basket-modal__btn{
+    background-color: transparent;
+    color: var(--action-color);
+    margin: 0;
+}
+:root.dark-theme
+.basket-modal__btn{
+    background-color: var(--action-color-hover);
+    color: #fff;
+    margin: 0;
+    border: none;
+}
+
+.basket-modal__clear:hover,
+.basket-modal__confirm:hover{
+    color: #fff;
+}
+
+
+/*============================================== Responsive Project ==============================================*/
+
+
+@media screen and (min-width:1400px){
+
+}
+
+
+@media only screen and (max-width: 1200px) {
+  
+}
+
+@media only screen and (max-width: 992px){
+
+}
+
+  
+@media only screen and (max-width: 768px) {
+    .basket-modal{
+        width: 49rem;
+    }
+}
+
+@media only screen and (max-width: 576px){
+    .basket-modal{
+        width: 40rem;
+    }
+    .basket-modal__total span{
+        margin-left: 0;
+        padding-top: .6rem;
+    }
+    .basket-modal__title{
+        font-size: 2.2rem;
+    }
+}
+
+@media only screen and (max-width: 470px){
+/*================ Responsive Modal Basket ================*/
+    .basket-modal{
+        width: 30rem;
+    }
+    .basket-modal__total span{
+        margin-left: 0;
+        padding-top: .6rem;
+    }
+    .basket-modal__computing{
+        flex-direction: column-reverse;
+    }
+    .basket-modal-item__caption{
+        font-size: 1.5rem;
+    }
+    .basket-modal-item__picture{
+        width: 80px;
+    }
+    .basket-modal-item__icon{
+        width: 17px;
+        height: 17px;
+    }
+    .basket-modal-item__num {
+        margin: 0 0.4rem;
+        font-size: 1.6rem; 
+    }
+    .basket-modal-item__number input[type=number] {
+        font-family: 'Poppins-Medium';
+        max-width: 2.5rem;
+        font-size: 1.8rem;
+    }
+}
+
+@media only screen and (max-width: 330px){
+/*================ Responsive Modal Basket ================*/
+    .basket-modal{
+        width: 25rem;
+    }
+
+    .basket-modal-item__title,
+    .basket-modal-item__price{
+        font-size: 1.4rem;
+    }
+    .basket-modal-item__number input[type=number]{
+        max-width: 1.7rem;
+        font-size: 1.4rem;
+    }
+
+    .basket-modal-item__icon{
+        width: 14px;
+        height: 14px;
+    }
+}
