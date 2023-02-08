@@ -458,7 +458,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 @media only screen and (max-width: 576px){
     .basket-modal{
-        width: 40rem;
+        width: 94%;
     }
     .basket-modal__total span{
         margin-left: 0;
@@ -471,9 +471,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 @media only screen and (max-width: 470px){
 /*================ Responsive Modal Basket ================*/
-    .basket-modal{
-        width: 30rem;
-    }
     .basket-modal__total span{
         margin-left: 0;
         padding-top: .6rem;
@@ -504,10 +501,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 @media only screen and (max-width: 330px){
 /*================ Responsive Modal Basket ================*/
-    .basket-modal{
-        width: 25rem;
-    }
-
+ 
     .basket-modal-item__title,
     .basket-modal-item__price{
         font-size: 1.4rem;
