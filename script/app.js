@@ -76,7 +76,6 @@ function setInLocalStorage (nameSet,dataSet) {
 
 // add Product User Basket 
 function addProductBasket (productId) {
-
     let basket = userBasketCart.some(basketProduct => {
         return basketProduct.id === productId 
     })
@@ -92,6 +91,7 @@ function addProductBasket (productId) {
         userBasketCart.push(mainProduct)
         generateProductBasket(userBasketCart);
         totalPrice(userBasketCart)
+        setInLocalStorage("basket",JSON.stringify(userBasketCart))
     }
 
 }
@@ -107,18 +107,6 @@ function themeHandler () {
         setInLocalStorage('Theme','light-theme')
     }
 }
-
-
-window.addEventListener("load", () =>  {
-    let getLocalStorage = localStorage.getItem("Theme")
-
-    if(getLocalStorage === 'dark-theme'){
-     document.documentElement.classList.add("dark-theme");
-
-    }else{
-     document.documentElement.classList.add("light-theme");
-    }
-})
 
 
 // user Basket Show
@@ -143,14 +131,14 @@ function basketModalCloseHandler () {
 
 
 // Generate Products User Basket
-function generateProductBasket (){
+function generateProductBasket (userBasketCarts){
+    console.log("userBasketCarts:",userBasketCarts);
     if(userBasketCart.length === 0){
         basketModalItems.innerHTML = '';
         basketModalItems.insertAdjacentHTML('beforeend', `<p class="basket-modal__caption">cart is empty!</p>`)
     }else{
-
     basketModalItems.innerHTML = '';
-    userBasketCart.forEach(basketProduct => {
+    userBasketCarts.forEach(basketProduct => {
         basketModalItems.insertAdjacentHTML("beforeend", `
         <div class="basket-modal-item">
         <div class="basket-modal-item__picture">
@@ -167,7 +155,7 @@ function generateProductBasket (){
             <path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 2C3.11929 2 2 3.11929 2 4.5V19.5C2 20.8807 3.11929 22 4.5 22H19.5C20.8807 22 22 20.8807 22 19.5V4.5C22 3.11929 20.8807 2 19.5 2H4.5ZM4 4.5C4 4.22386 4.22386 4 4.5 4H19.5C19.7761 4 20 4.22386 20 4.5V19.5C20 19.7761 19.7761 20 19.5 20H4.5C4.22386 20 4 19.7761 4 19.5V4.5Z" fill="#FF0000"/>
             </svg>
         </button>
-        <input type="number" class="basket-modal-item__input" value="1" min="0" max="10">
+        <input type="number" class="basket-modal-item__input" value="${basketProduct.count}" min="0" max="10">
         <button onclick="basketProductPlus(this,${basketProduct.id},this.parentNode.querySelector('input[type=number]').value)" class="basket-modal-item__plus">
             <svg xmlns="http://www.w3.org/2000/svg" class="basket-modal-item__icon" width="23px" height="23px" viewBox="0 0 24 24" fill="#008000">
             <path d="M12 6C12.5523 6 13 6.44772 13 7V11H17C17.5523 11 18 11.4477 18 12C18 12.5523 17.5523 13 17 13H13V17C13 17.5523 12.5523 18 12 18C11.4477 18 11 17.5523 11 17V13H7C6.44772 13 6 12.5523 6 12C6 11.4477 6.44772 11 7 11H11V7C11 6.44772 11.4477 6 12 6Z" fill="#008000"/>
@@ -189,14 +177,13 @@ function generateProductBasket (){
     userBasketBadge.textContent = userBasketCart.length
 }
 
-generateProductBasket()
-
 
 // clear ALl Products Is User Basket
 function basketModalClearHandler () {
     userBasketCart = [];
+    localStorage.removeItem("basket")
     basketModalItems.innerHTML = '';
-    generateProductBasket(userBasket);
+    generateProductBasket(userBasketCart);
     totalPrice (userBasketCart)
 }
 
@@ -215,8 +202,10 @@ function removeBasketProduct (productId) {
     })
 
     generateProductBasket(userBasketCart)
+    setInLocalStorage("basket",JSON.stringify(userBasketCart))
     totalPrice (userBasketCart)
 }
+
 
 // sum product price
 function totalPrice (userBasketCart) {
@@ -250,8 +239,17 @@ function basketProductMinus (elem,basketProductId,basketProductValue) {
 
     })
 
+
+    // Update Number Value Product
+    let getLocalStorageBasket = JSON.parse(localStorage.getItem("basket"));
+
+    if(getLocalStorageBasket !== null){
+        setInLocalStorage("basket",JSON.stringify(userBasketCart)) 
+    }
+
     totalPrice(userBasketCart)
 }
+
 
 // Update count & price Product 
 function basketProductPlus (elem,basketProductId,basketProductValue) {
@@ -265,16 +263,44 @@ function basketProductPlus (elem,basketProductId,basketProductValue) {
             if(basketProductValue === '10'){
                 basketProduct.count = Number(basketProductValue) 
             }else{
-                basketProduct.count = Number(basketProductValue) +1
+                basketProduct.count = Number(basketProductValue) + 1
             }
 
         }
 
     })
 
+    // Update Number Value Product
+    let getLocalStorageBasket = JSON.parse(localStorage.getItem("basket"));
+
+    if(getLocalStorageBasket !== null){
+        setInLocalStorage("basket",JSON.stringify(userBasketCart)) 
+    }
+
     totalPrice(userBasketCart)
 }
 
+
+// dom loaded 
+window.addEventListener("load", () =>  {
+    let getLocalStorageTheme = localStorage.getItem("Theme");
+    let getLocalStorageBasket = JSON.parse(localStorage.getItem("basket"));
+
+    if(getLocalStorageBasket !== null){
+        userBasketCart = getLocalStorageBasket
+        totalPrice(userBasketCart)
+    }
+
+    if(getLocalStorageTheme === 'dark-theme'){
+     document.documentElement.classList.add("dark-theme");
+
+    }else{
+     document.documentElement.classList.add("light-theme");
+    }
+    generateProductBasket(getLocalStorageBasket)
+    console.log("getLocalStorageBasket: ",getLocalStorageBasket);
+
+})
 
 
 //Set Events
