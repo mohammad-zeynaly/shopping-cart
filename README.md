@@ -17,6 +17,7 @@
 * reset cart items
 * show total price
 * show total cart item number
+* save cart items in localStorage
 
 ---
 ## web development technologies
