@@ -2,7 +2,7 @@
 ---
 
 # a minimal shopping cart!
-## [review online](https://mohammad-zeynali.github.io/shopping-cart/)
+## [review online](https://mohammad-zeynaly.github.io/shopping-cart/)
 
 ---
 ## tips
